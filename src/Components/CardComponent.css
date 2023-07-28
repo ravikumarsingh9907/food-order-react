@@ -1,0 +1,30 @@
+.card-item-container {
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 0.5rem 2rem;
+    position: relative;
+}
+
+.card-item-container .card-item .food-name {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.card-item-container .card-item .price {
+    letter-spacing: 0.1rem;
+    line-height: 2.5rem;
+}
+
+.quantity {
+    padding: 0.2rem 0.8rem;
+    border-radius: 5px;
+    border: 1px solid green;
+    font-weight: 600;
+    font-size: 1.2rem;
+    background: #90ee9061;
+    position: absolute;
+    left: 23%;
+    top: 46%;
+}

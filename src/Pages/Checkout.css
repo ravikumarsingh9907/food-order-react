@@ -1,0 +1,31 @@
+.checkout-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 600px;
+    width: 83%;
+    height: 400px;
+    z-index: 100;
+    background-color: #000000c2;
+    border-radius: 10px;
+    padding: 1rem;
+    overflow-y: scroll;
+}
+
+.checkout-container .checkout-close {
+    color: white;
+    display: flex;
+    justify-content: end;
+    margin-bottom: 1rem;
+}
+
+.checkout-container .cart-items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.hidden {
+    display: none;
+}

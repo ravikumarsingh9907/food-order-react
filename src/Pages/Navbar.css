@@ -1,0 +1,17 @@
+.navbar-container {
+    max-width: 69rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0rem 1rem;
+}
+
+.navbar-content-container {
+    background: lightseagreen;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+}
