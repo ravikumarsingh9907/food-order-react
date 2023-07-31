@@ -1,53 +1,36 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { CartContext } from './cart-context';
+import items from '../Asset/constants/cards';
 
 export function CartProvider(props) {
     const [cartQuantity, setcartQuantity] = useState(0);
-    const [cartItem, setCartItem] = useState([]);
     const [isClosed, setIsClosed] = useState(true);
-
-    useEffect(() => {localStorage.clear()}, []);
 
     const handleIsClosed = () => {
         setIsClosed(!isClosed);
     }
 
-    const addAndUpdateTheCart = (cartItems, item, quantity) => {
-        cartItems.forEach((cart, index) => {
-            if(cart.id === item.id) {
-                setCartItem(cartItem.splice(index, 1));
-                setCartItem([...cartItem, {...cart, quantity: quantity}]);
-            } else if(cart.quantity === 0 ) {
-                setCartItem(cartItem.splice(index, 1));
-            } else {
-                setCartItem([...cartItem, {...item, quantity: quantity}]);
-            }
-        })
-    }
-
     const handleCart = (item, action, quantity) => {
-        addAndUpdateTheCart(cartItem, item, quantity)
-
         if (action === 'add') {
             setcartQuantity(cartQuantity + 1);
+            items.splice(items.indexOf(item), 1, {...item, quantity: quantity});
         } else if (action === 'remove') {
             setcartQuantity(cartQuantity - 1);
+            console.log(item);
+            items.splice(items.indexOf(item), 1, {...item, quantity: quantity});
         } else {
             setcartQuantity(cartQuantity + 1);
-            setCartItem([...cartItem, {...item, quantity: quantity}]);
+            items.splice(items.indexOf(item), 1, {...item, quantity: quantity});
         }
     }
-
-    console.log(cartItem);
 
     const cartContext = {
         isClosed,
         handleIsClosed,
         cartQuantity,
         setcartQuantity,
-        setCartItem,
         handleCart,
-        cartItem
+        items
     }
 
     return (

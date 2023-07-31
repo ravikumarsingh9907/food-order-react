@@ -15,7 +15,7 @@ export default function CardComponent({ card, quantity }) {
                 </div>
                 {quantity > 0 ? <div><span className="quantity">x{quantity}</span></div> : ''}
             </div>
-            {isClosed || localStorage.getItem(`${card.id}`) ? <AddToCartComponent card={card} id={card.id} /> : ''}
+            {isClosed || card.id ? <AddToCartComponent card={card} id={card.id} /> : ''}
         </div>
     );
 }

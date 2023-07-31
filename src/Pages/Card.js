@@ -1,9 +1,11 @@
 import './Card.css';
-import Cards from '../Asset/constants/cards';
 import CardComponent from '../Components/CardComponent';
+import { useContext } from 'react';
+import { CartContext } from '../Context/cart-context';
 
 export default function Card() {
-    const renderCards = Cards.map((card) => {
+    const { items } = useContext(CartContext);
+    const renderCards = items.map((card) => {
         return (
             <CardComponent card={card} key={card.id} />
         )

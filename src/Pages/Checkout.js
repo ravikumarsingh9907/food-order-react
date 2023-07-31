@@ -5,7 +5,7 @@ import CardComponent from "../Components/CardComponent";
 
 export default function Checkout() {
     const [style, setStyle] = useState('checkout-container');
-    const { cartItem, isClosed, handleIsClosed } = useContext(CartContext);
+    const { items, isClosed, handleIsClosed } = useContext(CartContext);
 
     useEffect(() => {
         if (isClosed) {
@@ -15,13 +15,13 @@ export default function Checkout() {
         }
     }, [isClosed]);
 
-    const renderItems = cartItem.map((item) => {
+    const renderItems = items.map((item) => {
         if (item.quantity && item.quantity > 0) {
-            return <CardComponent card={item} quantity={item.quantity}/>
+            return <CardComponent card={item} quantity={item.quantity} key={item.id}/>
         }
         return '';
     })
-
+    
     return (
         <div className={style}>
             <div className="checkout-close">
@@ -30,7 +30,6 @@ export default function Checkout() {
             <div className="cart-items-container">
                 {renderItems}
             </div>
-            
         </div>
     )
 }
