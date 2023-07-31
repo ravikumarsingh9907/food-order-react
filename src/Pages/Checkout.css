@@ -16,7 +16,7 @@
 .checkout-container .checkout-close {
     color: white;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     margin-bottom: 1rem;
 }
 
@@ -28,4 +28,35 @@
 
 .hidden {
     display: none;
+}
+
+.total-amount {
+    position: absolute;
+    bottom: 0%;
+    display: flex;
+    justify-content: space-around;
+    width: 95%;
+    height: 4rem;
+    align-items: center;
+    background: #e41b57;
+    border-radius: 1rem;
+}
+
+.total-amount .amount {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.total-amount .amount span {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: white;
+}
+
+.checkout-btn button {
+    padding: 0.5rem 1rem;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 1.25rem;
 }

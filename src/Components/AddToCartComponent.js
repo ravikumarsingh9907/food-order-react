@@ -17,25 +17,26 @@ export default function AddToCartComponent({ card, id }) {
         }
     }, [isClosed])
 
+    const updateQuantityAndHandleCart = (action, food, quantity) => {
+        if(action === item.REMOVE) {
+            updateItemQuantity(quantity - 1);
+            handleCart(food, action, quantity - 1);
+        } else {
+            updateItemQuantity(quantity + 1);
+            handleCart(food, action, quantity + 1);
+        }
+    }
+
     const handleQuantityChange = (event) => {
-        if (itemQuantity > 0 && event.target.textContent === item.REMOVE) {
-            updateItemQuantity(itemQuantity - 1);
-            handleCart(card, event.target.textContent, itemQuantity - 1);
-        } else if (itemQuantity > 0 && event.target.textContent === item.ADD) {
-            updateItemQuantity(itemQuantity + 1);
-            handleCart(card, event.target.textContent, itemQuantity + 1);
+        if (itemQuantity > 0) {
+            updateQuantityAndHandleCart(event.target.textContent, card, itemQuantity)
+        } else if (itemQuantity > 0) {
+            updateQuantityAndHandleCart(event.target.textContent, card, itemQuantity)
         } else if (itemQuantity === 0) {
             if (card.quantity) {
-                if (event.target.textContent === 'remove') {
-                    updateItemQuantity(card.quantity - 1);
-                    handleCart(card, event.target.textContent, card.quantity - 1);
-                } else {
-                    updateItemQuantity(itemQuantity + 1);
-                    handleCart(card, event.target.textContent, itemQuantity + 1);
-                }
+                updateQuantityAndHandleCart(event.target.textContent, card, card.quantity)
             } else {
-                updateItemQuantity(itemQuantity + 1);
-                handleCart(card, event.target.textContent, itemQuantity + 1);
+                updateQuantityAndHandleCart(event.target.textContent, card, itemQuantity)
             }
         }
     }

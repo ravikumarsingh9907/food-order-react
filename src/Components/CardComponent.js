@@ -11,7 +11,7 @@ export default function CardComponent({ card, quantity }) {
             <div className="card-item">
                 <div>
                     <p className="food-name">{card.name}</p>
-                    <p className="price"><span>Price: </span>{card.price}</p>
+                    <p className="price"><span>Price: $</span>{card.price}</p>
                 </div>
                 {quantity > 0 ? <div><span className="quantity">x{quantity}</span></div> : ''}
             </div>

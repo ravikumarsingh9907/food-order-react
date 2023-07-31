@@ -16,7 +16,6 @@ export function CartProvider(props) {
             items.splice(items.indexOf(item), 1, {...item, quantity: quantity});
         } else if (action === 'remove') {
             setcartQuantity(cartQuantity - 1);
-            console.log(item);
             items.splice(items.indexOf(item), 1, {...item, quantity: quantity});
         } else {
             setcartQuantity(cartQuantity + 1);
